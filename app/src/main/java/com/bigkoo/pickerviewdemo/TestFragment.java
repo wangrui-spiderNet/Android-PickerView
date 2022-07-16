@@ -51,10 +51,10 @@ public class TestFragment extends Fragment implements View.OnClickListener {
         Calendar selectedDate = Calendar.getInstance();
 
         Calendar startDate = Calendar.getInstance();
-        startDate.set(2013, 0, 23);
+        startDate.set(1920, 00, 01);
 
-        Calendar endDate = Calendar.getInstance();
-        endDate.set(2019, 11, 28);
+//        Calendar endDate = Calendar.getInstance();
+//        endDate.set(2019, 11, 28);
         //时间选择器
         pvTime = new TimePickerBuilder(getActivity(), new OnTimeSelectListener() {
             @Override
@@ -86,7 +86,7 @@ public class TestFragment extends Fragment implements View.OnClickListener {
                         });
                     }
                 })
-                .setType(new boolean[]{true, true, true, false, false, false})
+                .setType(new boolean[]{true, true, true, false, false, false})//显示年月日，隐藏时分秒
                 .setLabel("", "", "", "", "", "") //设置空字符串以隐藏单位提示   hide label
                 .setDividerColor(Color.DKGRAY)
                 .setContentTextSize(20)
@@ -95,9 +95,13 @@ public class TestFragment extends Fragment implements View.OnClickListener {
                 .setDecorView(mFrameLayout)//非dialog模式下,设置ViewGroup, pickerView将会添加到这个ViewGroup中
                 .setOutSideColor(0x00000000)
                 .setOutSideCancelable(false)
+                .setCancelText("取消")
+                .setBgColor(0xFF00BB)
                 .build();
 
         pvTime.setKeyBackCancelable(false);//系统返回键监听屏蔽掉
+
+        pvTime.setTitleText("自定义容器");
     }
 
     @Override
